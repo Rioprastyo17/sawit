@@ -1,0 +1,147 @@
+/* Ganti semua style modal lama dengan yang ini */
+
+/* --- Styles for Modal --- */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modalContent {
+    background-color: var(--background-secondary);
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modalContent h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.modalContent p {
+    margin-bottom: 28px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formGroup label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.input, .select, .textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background-color: var(--background-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.formActions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.closeButton, .submitButton {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid;
+    transition: all 0.2s;
+}
+
+.closeButton {
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.closeButton:hover {
+    background-color: var(--border-color);
+}
+
+.submitButton {
+    background-color: #27ae60; /* Warna hijau dari referensi */
+    color: #fff;
+    border-color: #27ae60;
+}
+
+.submitButton:hover {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.submitButton:disabled {
+    background-color: var(--text-secondary);
+    cursor: not-allowed;
+    border-color: var(--text-secondary);
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: rgba(255, 107, 107, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 107, 107, 0.2);
+}

@@ -10,12 +10,18 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
+    "@prisma/client": "^6.10.1",
+    "axios": "^1.10.0",
+    "bcryptjs": "^3.0.2",
+    "cheerio": "^1.1.0",
     "framer-motion": "^11.0.8",
+    "jose": "^6.0.11",
     "next": "13.5.6",
     "react": "^18",
     "react-dom": "^18",
     "react-toastify": "^10.0.4",
-    "reactjs-editor": "^10.0.1"
+    "reactjs-editor": "^10.0.1",
+    "recharts": "^2.15.3"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -23,6 +29,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "13.5.6",
+    "prisma": "^6.10.1",
     "typescript": "^5"
   }
 }

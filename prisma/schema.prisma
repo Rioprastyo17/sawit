@@ -1,0 +1,57 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  notes     Note[] // Relasi: Satu User bisa punya banyak Note
+}
+
+// -- TAMBAHKAN MODEL DAN ENUM BARU DI BAWAH INI --
+
+model Note {
+  id         Int          @id @default(autoincrement())
+  title      String
+  content    String? // Konten bisa opsional
+  category   NoteCategory // Menggunakan Enum Kategori
+  status     NoteStatus   @default(PROSES) // Default status adalah Proses
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  // Relasi ke User
+  userId     Int
+  user       User         @relation(fields: [userId], references: [id])
+}
+
+enum NoteCategory {
+  PEMUPUKAN
+  PESTISIDA
+  BIBIT
+  PEMELIHARAAN
+  PANEN
+  SUPPLIER
+  KEUANGAN
+}
+
+enum NoteStatus {
+  PROSES
+  SELESAI
+  BATAL
+}
+
+model PalmOilPrice {
+  id    Int      @id @default(autoincrement())
+  price Float
+  date  DateTime @unique // Tanggal harga, unik untuk mencegah duplikat harian
+  source String // Sumber data (misal: nama situs web)
+}
